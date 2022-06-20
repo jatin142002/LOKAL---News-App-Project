@@ -1,21 +1,27 @@
 import "./App.css";
-import React , {useState} from "react";
+// eslint-disable-next-line
+import React,{useState} from "react";
 import NavBar from "./components/Navbar";
 import News from "./components/News";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 const App = () => {
   const pageSize = 6;
-  const apiKey = "2069f8682ebc4eefad0647d5e3ca6b7e";
-    // eslint-disable-next-line 
-  const [search , setSearch] = useState("");
+  const apiKey = "ed36f16e328e4f1fbcd791acdd9ec499";
   
+  // const [query, setQuery] = useState("Dhoni");
 
+  let search_data="Dhoni" ;
+
+  const pull_search = (data) => {
+    console.log(data); // LOGS DATA FROM CHILD (My name is Dean Winchester... &)
+    search_data = data;
+  }
+  
   return (
     <div>
       <Router>
-        <NavBar setSearch={setSearch}/>
-
+        <NavBar func={pull_search} />
         <Switch>
           <Route exact path="/">
             <News
@@ -87,16 +93,17 @@ const App = () => {
               typ="link"
             />
           </Route>
-          {/* <Route exact path="/search">
+          <Route exact path="/search">
             <News
               apiKey={apiKey}
               key="search"
               pageSize={pageSize}
               country="in"
-              category={search}
+              category={search_data}
               typ="search"
             />
-          </Route> */}
+             {/* {console.log(query)} */}
+          </Route>
         </Switch>
       </Router>
     </div>

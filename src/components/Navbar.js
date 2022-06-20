@@ -1,12 +1,17 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, {useState} from "react";
 
 const NavBar = (props) => {
+  
+   const [value, setValue] = useState(); 
 
-    // function handleSearch(){
-    //     let query = document.getElementById("search_bar").value;
-    //     props.setSearch(query);
-    // }
+  function handleSearch(event) {
+    setValue(event.target.value);
+    props.func(event.target.value);
+    // console.log("Handle click ke andar hu");
+  }
+
+//   console.log("Mai click ho gya");
+  
 
   return (
     <div>
@@ -27,54 +32,55 @@ const NavBar = (props) => {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <Link className="nav-link" aria-current="page" to="/">
+                <a className="nav-link" aria-current="page" href="/">
                   General
-                </Link>
+                </a>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/business">
+                <a className="nav-link" href="/business">
                   Business
-                </Link>
+                </a>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/entertainment">
+                <a className="nav-link" href="/entertainment">
                   Entertainment
-                </Link>
+                </a>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/health">
+                <a className="nav-link" href="/health">
                   Health
-                </Link>
+                </a>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/science">
+                <a className="nav-link" href="/science">
                   Science
-                </Link>
+                </a>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/sports">
+                <a className="nav-link" href="/sports">
                   Sports
-                </Link>
+                </a>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/technology">
+                <a className="nav-link" href="/technology">
                   Technology
-                </Link>
+                </a>
               </li>
-             
             </ul>
-            {/* <form className="d-flex" role="search">
+            <span className="d-flex" role="search">
               <input
                 className="form-control me-2"
                 type="search"
                 placeholder="Search"
                 aria-label="Search"
                 id="search_bar"
+                value={value ?? ""}
+                onChange={handleSearch}
               />
-              <Link className="btn btn-outline-light" to="/search" >
+              <a className="btn btn-outline-light" href="/search">
                 Search
-              </Link>
-            </form> */}
+              </a>
+            </span>
           </div>
         </div>
       </nav>
