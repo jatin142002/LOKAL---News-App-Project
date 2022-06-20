@@ -18,13 +18,12 @@ const News = (props) => {
   const updateNews = async () => {
     let url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${props.apiKey}&page=${page}&pageSize=${props.pageSize}`;
 
-    if(props.typ==="search")
-    {
-        url=`https://newsapi.org/v2/everything?q=${props.category}&apiKey=${props.apiKey}&page=${page}&pageSize=${props.pageSize}`;
+    if (props.typ === "search") {
+      url = `https://newsapi.org/v2/everything?q=${props.category}&apiKey=${props.apiKey}&page=${page}&pageSize=${props.pageSize}`;
     }
 
-    console.log(url);
-    console.log(props.category);
+    // console.log(url);
+    // console.log(props.category);
 
     setLoading(true);
 
@@ -44,14 +43,19 @@ const News = (props) => {
   }, []);
 
   const fetchMoreData = async () => {
-    let url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${props.apiKey}&page=${page + 1}&pageSize=${props.pageSize}`;
+    let url = `https://newsapi.org/v2/top-headlines?country=${
+      props.country
+    }&category=${props.category}&apiKey=${props.apiKey}&page=${
+      page + 1
+    }&pageSize=${props.pageSize}`;
 
-    if(props.typ==="search")
-    {
-        url=`https://newsapi.org/v2/everything?q=${props.category}&apiKey=${props.apiKey}&page=${page + 1}&pageSize=${props.pageSize}`;
+    if (props.typ === "search") {
+      url = `https://newsapi.org/v2/everything?q=${props.category}&apiKey=${
+        props.apiKey
+      }&page=${page + 1}&pageSize=${props.pageSize}`;
     }
 
-    console.log(url);
+    // console.log(url);
 
     setPage(page + 1);
     let data = await fetch(url);

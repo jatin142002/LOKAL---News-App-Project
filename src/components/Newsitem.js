@@ -1,7 +1,7 @@
 import React from "react";
 
 const NewsItem = (props) => {
-  let { title, description, imageUrl, newsUrl, author, date} = props;
+  let { title, description, imageUrl, newsUrl, author, date } = props;
   return (
     <div className="my-3">
       <div className="card text-white bg-dark">
@@ -16,9 +16,17 @@ const NewsItem = (props) => {
           alt="..."
         />
         <div className="card-body">
-          <h5 className="card-title">{!title ? "Not Available , click on read more to get info"  : title.slice(0,50)}...</h5>
+          <h5 className="card-title">
+            {!title
+              ? "Not Available , click on read more to get info"
+              : title.slice(0, 50)}
+            ...
+          </h5>
           <p className="card-text">
-            {!description ? "Not Available , click on read more to get info" : description.slice(0,50)}...
+            {!description
+              ? "Not Available , click on read more to get info"
+              : description.slice(0, 50)}
+            ...
           </p>
           <p className="card-text">
             <small className="text-muted">
