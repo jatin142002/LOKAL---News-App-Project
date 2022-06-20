@@ -1,7 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const NavBar = () => {
+const NavBar = (props) => {
+
+    // function handleSearch(){
+    //     let query = document.getElementById("search_bar").value;
+    //     props.setSearch(query);
+    // }
+
   return (
     <div>
       <nav className="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
@@ -55,18 +61,20 @@ const NavBar = () => {
                   Technology
                 </Link>
               </li>
+             
             </ul>
-            <form class="d-flex" role="search">
+            {/* <form className="d-flex" role="search">
               <input
-                class="form-control me-2"
+                className="form-control me-2"
                 type="search"
                 placeholder="Search"
                 aria-label="Search"
+                id="search_bar"
               />
-              <button class="btn btn-outline-light" type="submit">
+              <Link className="btn btn-outline-light" to="/search" >
                 Search
-              </button>
-            </form>
+              </Link>
+            </form> */}
           </div>
         </div>
       </nav>
@@ -75,3 +83,4 @@ const NavBar = () => {
 };
 
 export default NavBar;
+
