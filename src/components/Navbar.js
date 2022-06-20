@@ -6,9 +6,7 @@ const NavBar = () => {
     <div>
       <nav className="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
         <div className="container-fluid">
-          <Link className="navbar-brand" to="/">
-            NewsMonkey
-          </Link>
+          <span className="navbar-brand">Daily News</span>
           <button
             className="navbar-toggler"
             type="button"
@@ -24,7 +22,7 @@ const NavBar = () => {
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
                 <Link className="nav-link" aria-current="page" to="/">
-                  Home
+                  General
                 </Link>
               </li>
               <li className="nav-item">
@@ -35,11 +33,6 @@ const NavBar = () => {
               <li className="nav-item">
                 <Link className="nav-link" to="/entertainment">
                   Entertainment
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" to="/general">
-                  General
                 </Link>
               </li>
               <li className="nav-item">
@@ -63,6 +56,17 @@ const NavBar = () => {
                 </Link>
               </li>
             </ul>
+            <form class="d-flex" role="search">
+              <input
+                class="form-control me-2"
+                type="search"
+                placeholder="Search"
+                aria-label="Search"
+              />
+              <button class="btn btn-outline-light" type="submit">
+                Search
+              </button>
+            </form>
           </div>
         </div>
       </nav>
