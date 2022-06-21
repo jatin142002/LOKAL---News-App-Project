@@ -7,7 +7,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 const App = () => {
   const pageSize = 6;
-  const apiKey = "ed36f16e328e4f1fbcd791acdd9ec499";
+  const apiKey = "c502eb0a74a5481096d90cc2f6c0db94";
 
   let search = "Nasa";
 

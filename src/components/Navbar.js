@@ -1,20 +1,20 @@
-import React, { useState } from "react"; 
-// import { useHistory } from "react-router-dom";
+import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 
 const NavBar = (props) => {
   const [value, setValue] = useState();
-  
-//   let history = useHistory();
+
+  const history = useHistory();
 
   function handleChange(event) {
     setValue(event.target.value);
-  };
+  }
 
-  function handleSubmit(event){
+  function handleSubmit(event) {
     event.preventDefault();
     props.func(value);
-    // history.push("/search");
-  };
+    history.push("/technology");
+  }
 
   return (
     <div>
@@ -70,7 +70,12 @@ const NavBar = (props) => {
                 </a>
               </li>
             </ul>
-            <form className="d-flex" onSubmit={handleSubmit} role="search">
+            <form
+              className="d-flex"
+              href="/search"
+              onSubmit={handleSubmit}
+              role="search"
+            >
               <input
                 className="form-control me-2"
                 type="search"
@@ -79,11 +84,9 @@ const NavBar = (props) => {
                 value={value ?? ""}
                 onChange={handleChange}
               />
-              <a href="/search">
-                <button className="btn btn-outline-light" type="submit" onClick={()=>{window.location.href="/search"}}>
-                    Search
-                </button>
-              </a>
+              <button className="btn btn-outline-light" type="submit">
+                Search
+              </button>
             </form>
           </div>
         </div>
