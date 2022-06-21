@@ -5,11 +5,15 @@ import Spinner from "./Spinner";
 import PropTypes from "prop-types";
 import InfiniteScroll from "react-infinite-scroll-component";
 
+import {useLocation} from 'react-router-dom';
+
 const News = (props) => {
   const [articles, setArticles] = useState([]);
   const [loading, setLoading] = useState(true);
   const [page, setPage] = useState(1);
   const [totalResults, setTotalResults] = useState(0);
+
+  const location = useLocation();
 
   const capitalizeFirstLetter = (string) => {
     return string.charAt(0).toUpperCase() + string.slice(1);
@@ -19,11 +23,11 @@ const News = (props) => {
     let url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${props.apiKey}&page=${page}&pageSize=${props.pageSize}`;
 
     if (props.typ === "search") {
-      url = `https://newsapi.org/v2/everything?q=${props.category}&apiKey=${props.apiKey}&page=${page}&pageSize=${props.pageSize}`;
+      url = `https://newsapi.org/v2/everything?q=${location.state}&apiKey=${props.apiKey}&page=${page}&pageSize=${props.pageSize}`;
     }
 
-    // console.log(url);
-    // console.log(props.category);
+    console.log(url);
+    console.log(location.state);
 
     setLoading(true);
 
@@ -50,7 +54,7 @@ const News = (props) => {
     }&pageSize=${props.pageSize}`;
 
     if (props.typ === "search") {
-      url = `https://newsapi.org/v2/everything?q=${props.category}&apiKey=${
+      url = `https://newsapi.org/v2/everything?q=${location.state}&apiKey=${
         props.apiKey
       }&page=${page + 1}&pageSize=${props.pageSize}`;
     }

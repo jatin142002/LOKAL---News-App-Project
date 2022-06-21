@@ -1,19 +1,20 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const NavBar = (props) => {
+const NavBar = () => {
   const [value, setValue] = useState();
 
   let navigate = useNavigate();
 
   function handleChange(event) {
     setValue(event.target.value);
+   
   }
 
   function handleSubmit(event) {
     event.preventDefault();
-    props.func(value);
-    navigate("/search");
+    
+    navigate("/search" , {state: value});
   }
 
   return (
@@ -84,9 +85,10 @@ const NavBar = (props) => {
                 value={value ?? ""}
                 onChange={handleChange}
               />
-              <button className="btn btn-outline-light" type="submit">
+              <button className="btn btn-outline-light" type="submit" value="submit">
                 Search
               </button>
+              
             </form>
           </div>
         </div>

@@ -5,22 +5,25 @@ import NavBar from "./components/Navbar";
 import News from "./components/News";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
+
+
 const App = () => {
   const pageSize = 6;
   const apiKey = "c502eb0a74a5481096d90cc2f6c0db94";
 
-  let search = "Nasa";
+  // let search = "Nasa";
 
-  const get_search = (data) => {
-    search = data;
-    console.log("Coming from search ");
-    console.log(search);
-  };
+  // const get_search = (data) => {
+  //   search = data;
+  //   console.log("Coming from search ");
+  //   console.log(search);
+  // };
 
+  
   return (
     <div>
       <BrowserRouter>
-        <NavBar func={get_search} />
+        <NavBar  />
 
         <Routes>
           <Route
@@ -130,7 +133,7 @@ const App = () => {
                 key="search"
                 pageSize={pageSize}
                 country="in"
-                category={search}
+                category="search"
                 typ="search"
               />
             }
