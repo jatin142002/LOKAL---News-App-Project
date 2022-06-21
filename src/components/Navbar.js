@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const NavBar = (props) => {
   const [value, setValue] = useState();
 
-  const history = useHistory();
+  let navigate = useNavigate();
 
   function handleChange(event) {
     setValue(event.target.value);
@@ -13,7 +13,7 @@ const NavBar = (props) => {
   function handleSubmit(event) {
     event.preventDefault();
     props.func(value);
-    history.push("/technology");
+    navigate("/search");
   }
 
   return (
