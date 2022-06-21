@@ -1,29 +1,17 @@
 import "./App.css";
-// eslint-disable-next-line
-import React, { useState } from "react";
+import React from "react";
 import NavBar from "./components/Navbar";
 import News from "./components/News";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-
-
 const App = () => {
   const pageSize = 6;
-  const apiKey = "c502eb0a74a5481096d90cc2f6c0db94";
+  const apiKey = "2069f8682ebc4eefad0647d5e3ca6b7e";
 
-  // let search = "Nasa";
-
-  // const get_search = (data) => {
-  //   search = data;
-  //   console.log("Coming from search ");
-  //   console.log(search);
-  // };
-
-  
   return (
     <div>
       <BrowserRouter>
-        <NavBar  />
+        <NavBar />
 
         <Routes>
           <Route

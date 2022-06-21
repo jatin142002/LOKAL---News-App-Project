@@ -8,13 +8,13 @@ const NavBar = () => {
 
   function handleChange(event) {
     setValue(event.target.value);
-   
   }
 
   function handleSubmit(event) {
     event.preventDefault();
-    
-    navigate("/search" , {state: value});
+    setValue("");
+    navigate("/search", { state: value });
+    window.location.reload(true);
   }
 
   return (
@@ -85,10 +85,13 @@ const NavBar = () => {
                 value={value ?? ""}
                 onChange={handleChange}
               />
-              <button className="btn btn-outline-light" type="submit" value="submit">
+              <button
+                className="btn btn-outline-light"
+                type="submit"
+                value="submit"
+              >
                 Search
               </button>
-              
             </form>
           </div>
         </div>

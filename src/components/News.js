@@ -5,7 +5,7 @@ import Spinner from "./Spinner";
 import PropTypes from "prop-types";
 import InfiniteScroll from "react-infinite-scroll-component";
 
-import {useLocation} from 'react-router-dom';
+import { useLocation } from "react-router-dom";
 
 const News = (props) => {
   const [articles, setArticles] = useState([]);
